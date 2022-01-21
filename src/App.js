@@ -141,7 +141,7 @@ const Coach = () => {
     return (
         <div className="bg py-5">
             <Container className="py-md-5">
-                <img src={coach} className="img-fluid w-100" />
+                <img src={coach} className="img-fluid w-100" alt="Coach" />
             </Container>
         </div>
     );
