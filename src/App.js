@@ -23,11 +23,52 @@ const Header = () => {
 
 const About = () => {
     return (
-        <div className="bg py-5">
+        <div className="bg pt-5">
             <Container className="py-5">
-                <h1 className="text-center">ABOUT COC</h1>
-                <div className="fs-3">
-                    Clash of Champions is the game that creates new heroes.
+                <h1 className="text-center mb-3">ABOUT COC</h1>
+                <div className="fs-4 mb-2">
+                    In the history of various contests conducted by Selfmade,
+                    Clash of Champions is a significant one. This remarkable
+                    contest has created lots of leaders in the past couple of
+                    years.
+                </div>
+                <div className="fs-4">
+                    The specialty of this contest is to bring the maximum
+                    potential of every individual that helps to get
+                    extraordinary results concerning their hard work.
+                </div>
+            </Container>
+        </div>
+    );
+};
+
+const Upgrades = () => {
+    return (
+        <div className="bg pb-5">
+            <Container className="py-5">
+                <h1 className="text-center">COC - 3</h1>
+                <div className="fs-4 mb-2">
+                    Let us have a look at the new upgrades introduced in this
+                    new Season:
+                </div>
+                <div className="fs-4">
+                    <ul>
+                        <li>
+                            "A good coach can change a game. A great coach can
+                            change a life.” - John Wooden. Every team has a
+                            dedicated Super Coach who can bring out the maximum
+                            capabilities of the participants.
+                        </li>
+                        <li>
+                            Attractive Live UI where you can track the
+                            performance of the teams and individuals and plan to
+                            compete and win.
+                        </li>
+                        <li>
+                            Enchanting rewards where you can experience a whole
+                            new lifestyle experience, Excited?
+                        </li>
+                    </ul>
                 </div>
             </Container>
         </div>
@@ -49,29 +90,9 @@ const RankImage = () => {
                             <Row>
                                 <Col className="my-3">
                                     <img
-                                        src={bronze}
-                                        className="img-fluid"
-                                        alt="Bronze"
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col className="my-3">
-                                    <img
                                         src={star}
                                         className="img-fluid"
                                         alt="Star"
-                                    />
-                                </Col>
-                            </Row>
-                        </Col>
-                        <Col className="align-self-center">
-                            <Row>
-                                <Col className="my-3">
-                                    <img
-                                        src={_3star}
-                                        className="img-fluid"
-                                        alt="3 Star"
                                     />
                                 </Col>
                             </Row>
@@ -81,6 +102,26 @@ const RankImage = () => {
                                         src={_5star}
                                         className="img-fluid"
                                         alt="5 Star"
+                                    />
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col className="align-self-center">
+                            <Row>
+                                <Col className="my-3">
+                                    <img
+                                        src={bronze}
+                                        className="img-fluid"
+                                        alt="Bronze"
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col className="my-3">
+                                    <img
+                                        src={_3star}
+                                        className="img-fluid"
+                                        alt="3 Star"
                                     />
                                 </Col>
                             </Row>
@@ -162,6 +203,7 @@ function App() {
         <>
             <Header />
             <About />
+            <Upgrades />
             <RankImage />
             <Coach />
             <Coc2 />
