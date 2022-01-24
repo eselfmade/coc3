@@ -23,16 +23,16 @@ const Header = () => {
 
 const About = () => {
     return (
-        <div className="bg pt-5">
+        <div className="bg pt-md-5">
             <Container className="py-5">
                 <h1 className="text-center mb-3">ABOUT COC</h1>
-                <div className="fs-4 mb-2">
+                <div className="fs-5 mb-2">
                     In the history of various contests conducted by Selfmade,
                     Clash of Champions is a significant one. This remarkable
                     contest has created lots of leaders in the past couple of
                     years.
                 </div>
-                <div className="fs-4">
+                <div className="fs-5">
                     The specialty of this contest is to bring the maximum
                     potential of every individual that helps to get
                     extraordinary results concerning their hard work.
@@ -47,11 +47,11 @@ const Upgrades = () => {
         <div className="bg pb-5">
             <Container className="py-5">
                 <h1 className="text-center">COC - 3</h1>
-                <div className="fs-4 mb-2">
+                <div className="fs-5 mb-2">
                     Let us have a look at the new upgrades introduced in this
                     new Season:
                 </div>
-                <div className="fs-4">
+                <div className="fs-5">
                     <ul>
                         <li>
                             "A good coach can change a game. A great coach can
@@ -178,11 +178,39 @@ const RankImage = () => {
 };
 
 const Coach = () => {
-    const coach = require("./images/coach.webp");
     return (
         <div className="bg py-5">
             <Container className="py-md-5">
-                <img src={coach} className="img-fluid w-100" alt="Coach" />
+                <div className="position-relative">
+                    <BrowserView>
+                        <img
+                            src={require("./images/coach-web.webp")}
+                            className="img-fluid w-100"
+                            alt="Coach"
+                        />
+                        <a
+                            href="javascript:"
+                            className="position-absolute rounded-pill btn btn-gray"
+                            style={{ top: 220, left: 100 }}
+                        >
+                            View Scorecard
+                        </a>
+                    </BrowserView>
+                    <MobileView>
+                        <img
+                            src={require("./images/coach-mob.webp")}
+                            className="img-fluid w-100"
+                            alt="Coach"
+                        />
+                        <a
+                            href="javascript:"
+                            className="position-absolute top-50 rounded-pill btn btn-gray"
+                            style={{ left: 40 }}
+                        >
+                            View Scorecard
+                        </a>
+                    </MobileView>
+                </div>
             </Container>
         </div>
     );
@@ -192,7 +220,107 @@ const Coc2 = () => {
     return (
         <div className="bg py-5">
             <Container className="text-center">
-                <h1>COC - 2 RESULTS</h1>
+                <h1 className="mb-md-3">COC - 2 RESULTS</h1>
+                <BrowserView>
+                    <Row className="mb-3">
+                        <Col>
+                            <img
+                                src={require("./images/hari.webp")}
+                                className="img-fluid"
+                                alt="Hariharan"
+                            />
+                        </Col>
+                        <Col>
+                            <img
+                                src={require("./images/nishanth.webp")}
+                                className="img-fluid"
+                                alt="Nishanth"
+                            />
+                        </Col>
+                        <Col>
+                            <img
+                                src={require("./images/tamizhselvan.webp")}
+                                className="img-fluid"
+                                alt="Tamizhselvan"
+                            />
+                        </Col>
+                        <Col>
+                            <img
+                                src={require("./images/surya.webp")}
+                                className="img-fluid"
+                                alt="Surya Prakash"
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <img
+                                src={require("./images/abishek.webp")}
+                                className="img-fluid"
+                                alt="Abishek"
+                            />
+                        </Col>
+                        <Col>
+                            <img
+                                src={require("./images/manoj.webp")}
+                                className="img-fluid"
+                                alt="Manoj"
+                            />
+                        </Col>
+                        <Col>
+                            <img
+                                src={require("./images/swathi.webp")}
+                                className="img-fluid"
+                                alt="Swathi"
+                            />
+                        </Col>
+                    </Row>
+                </BrowserView>
+                <MobileView>
+                    <Row>
+                        <Col className="align-self-center">
+                            <img
+                                src={require("./images/nishanth.webp")}
+                                className="img-fluid"
+                                alt="Nishanth"
+                            />
+                            <img
+                                src={require("./images/abishek.webp")}
+                                className="img-fluid"
+                                alt="Abishek"
+                            />
+                        </Col>
+                        <Col className="align-self-center">
+                            <img
+                                src={require("./images/hari.webp")}
+                                className="img-fluid"
+                                alt="Hariharan"
+                            />
+                            <img
+                                src={require("./images/tamizhselvan.webp")}
+                                className="img-fluid"
+                                alt="Tamizhselvan"
+                            />
+                            <img
+                                src={require("./images/manoj.webp")}
+                                className="img-fluid"
+                                alt="Manoj"
+                            />
+                        </Col>
+                        <Col className="align-self-center">
+                            <img
+                                src={require("./images/surya.webp")}
+                                className="img-fluid"
+                                alt="Surya Prakash"
+                            />
+                            <img
+                                src={require("./images/swathi.webp")}
+                                className="img-fluid"
+                                alt="Swathi"
+                            />
+                        </Col>
+                    </Row>
+                </MobileView>
             </Container>
         </div>
     );
