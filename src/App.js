@@ -189,7 +189,7 @@ const Coach = () => {
                             alt="Coach"
                         />
                         <a
-                            href="javascript:"
+                            href="#"
                             className="position-absolute rounded-pill btn btn-gray"
                             style={{ top: 220, left: 100 }}
                         >
@@ -203,7 +203,7 @@ const Coach = () => {
                             alt="Coach"
                         />
                         <a
-                            href="javascript:"
+                            href="#"
                             className="position-absolute top-50 rounded-pill btn btn-gray"
                             style={{ left: 40 }}
                         >
