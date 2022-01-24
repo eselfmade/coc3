@@ -188,13 +188,12 @@ const Coach = () => {
                             className="img-fluid w-100"
                             alt="Coach"
                         />
-                        <a
-                            href="#"
+                        <button
                             className="position-absolute rounded-pill btn btn-gray"
                             style={{ top: 220, left: 100 }}
                         >
                             View Scorecard
-                        </a>
+                        </button>
                     </BrowserView>
                     <MobileView>
                         <img
@@ -202,13 +201,12 @@ const Coach = () => {
                             className="img-fluid w-100"
                             alt="Coach"
                         />
-                        <a
-                            href="#"
+                        <button
                             className="position-absolute top-50 rounded-pill btn btn-gray"
                             style={{ left: 40 }}
                         >
                             View Scorecard
-                        </a>
+                        </button>
                     </MobileView>
                 </div>
             </Container>
