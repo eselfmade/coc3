@@ -15,6 +15,7 @@ h1,
 
 .bg-light-gray {
     background-color: #d3d3d3;
+    color: #000;
 }
 
 .btn-gray,
@@ -30,4 +31,12 @@ h1,
     color: #c32625;
     border-color: #c42726;
     box-shadow: none;
+}
+
+.rank-list img.border {
+    border-color: #c32625 !important;
+}
+
+.text-gray {
+    color: #5d5d5d;
 }

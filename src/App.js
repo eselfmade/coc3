@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 const Header = () => {
     return (
         <header>
@@ -140,11 +143,17 @@ const RankImage = () => {
                 <BrowserView>
                     <Row>
                         <Col>
-                            <img
-                                src={bronze}
-                                alt="Bronze"
-                                className="img-fluid"
-                            />
+                            <Link
+                                to={{
+                                    pathname: "/rank/1",
+                                }}
+                            >
+                                <img
+                                    src={bronze}
+                                    alt="Bronze"
+                                    className="img-fluid"
+                                />
+                            </Link>
                         </Col>
                         <Col>
                             <img src={star} alt="Star" className="img-fluid" />
@@ -324,16 +333,86 @@ const Coc2 = () => {
     );
 };
 
+function RankHeader({ props }) {
+    return (
+        <div className="bg p-5 text-center">
+            <h1>{props.rank}</h1>
+        </div>
+    );
+}
+
+const host = "http://localhost:8080";
+
+function RankList({ props }) {
+    const [rank, setRank] = useState([]);
+    useEffect(() => {
+        fetch(`${host}/api/coc/rank/${props.rank}`)
+            .then((r) => r.json())
+            .then((r) => {
+                setRank(r.rank);
+            });
+    }, [props]);
+    return (
+        <div className="bg-light-gray fs-3">
+            <Container className="rank-list text-center pb-5">
+                {rank.map((player, index) => {
+                    return (
+                        <Row className="align-items-center py-2">
+                            <Col className="col-1 fw-bold">{index + 1}.</Col>
+                            <Col className="3">
+                                <img
+                                    width={150}
+                                    alt=""
+                                    src={toImage(player.image)}
+                                    className="img-fluid rounded-circle border border-4"
+                                />
+                            </Col>
+                            <Col>
+                                <div className="fw-bold">{player.name}</div>
+                                <div className="text-gray">{player.team}</div>
+                            </Col>
+                            <Col className="fw-bold">₹{player.income}/-</Col>
+                        </Row>
+                    );
+                })}
+            </Container>
+        </div>
+    );
+}
+
+function toImage(id) {
+    return `https://download-accl.zoho.in/public/workdrive/previewdata/${id}?orig=true`;
+}
+
 function App() {
     return (
-        <>
-            <Header />
-            <About />
-            <Upgrades />
-            <RankImage />
-            <Coach />
-            <Coc2 />
-        </>
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <>
+                            <Header />
+                            <About />
+                            <Upgrades />
+                            <RankImage />
+                            <Coach />
+                            <Coc2 />
+                        </>
+                    }
+                ></Route>
+                <Route
+                    path="/rank/1"
+                    element={
+                        <>
+                            <Header />
+                            <RankHeader props={{ rank: "Bronze" }} />
+                            <RankList props={{ rank: 1 }} />
+                        </>
+                    }
+                ></Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 
