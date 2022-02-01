@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Link,
-    useParams,
-} from "react-router-dom";
+import { HashRouter, Routes, Route, Link, useParams } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -430,7 +424,7 @@ function toImage(id) {
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route
                     path="/"
@@ -456,7 +450,7 @@ function App() {
                     }
                 ></Route>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
