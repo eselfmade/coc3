@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link,
+    useParams,
+} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -156,28 +162,56 @@ const RankImage = () => {
                             </Link>
                         </Col>
                         <Col>
-                            <img src={star} alt="Star" className="img-fluid" />
+                            <Link
+                                to={{
+                                    pathname: "/rank/2",
+                                }}
+                            >
+                                <img
+                                    src={star}
+                                    alt="Star"
+                                    className="img-fluid"
+                                />
+                            </Link>
                         </Col>
                         <Col>
-                            <img
-                                src={_3star}
-                                alt="Bronze"
-                                className="img-fluid"
-                            />
+                            <Link
+                                to={{
+                                    pathname: "/rank/3",
+                                }}
+                            >
+                                <img
+                                    src={_3star}
+                                    alt="Bronze"
+                                    className="img-fluid"
+                                />
+                            </Link>
                         </Col>
                         <Col>
-                            <img
-                                src={_5star}
-                                alt="Bronze"
-                                className="img-fluid"
-                            />
+                            <Link
+                                to={{
+                                    pathname: "/rank/4",
+                                }}
+                            >
+                                <img
+                                    src={_5star}
+                                    alt="Bronze"
+                                    className="img-fluid"
+                                />
+                            </Link>
                         </Col>
                         <Col>
-                            <img
-                                src={_7star}
-                                alt="Bronze"
-                                className="img-fluid"
-                            />
+                            <Link
+                                to={{
+                                    pathname: "/rank/5",
+                                }}
+                            >
+                                <img
+                                    src={_7star}
+                                    alt="Bronze"
+                                    className="img-fluid"
+                                />
+                            </Link>
                         </Col>
                     </Row>
                 </BrowserView>
@@ -332,26 +366,34 @@ const Coc2 = () => {
         </div>
     );
 };
-
-function RankHeader({ props }) {
+const rankName = {
+    1: "Bronze",
+    2: "Star",
+    3: "3 Star",
+    4: "5 Star",
+    5: "7 Star",
+};
+function RankHeader() {
+    const { rankId } = useParams();
     return (
         <div className="bg p-5 text-center">
-            <h1>{props.rank}</h1>
+            <h1>{rankName[rankId]}</h1>
         </div>
     );
 }
 
 const host = "http://localhost:8080";
 
-function RankList({ props }) {
+function RankList() {
+    let { rankId } = useParams();
     const [rank, setRank] = useState([]);
     useEffect(() => {
-        fetch(`${host}/api/coc/rank/${props.rank}`)
+        fetch(`${host}/api/coc/rank/${rankId}`)
             .then((r) => r.json())
             .then((r) => {
                 setRank(r.rank);
             });
-    }, [props]);
+    }, [rankId]);
     return (
         <div className="bg-light-gray fs-3">
             <Container className="rank-list text-center pb-5">
@@ -362,7 +404,7 @@ function RankList({ props }) {
                             <Col className="3">
                                 <img
                                     width={150}
-                                    alt=""
+                                    alt={player.name + " " + player.team}
                                     src={toImage(player.image)}
                                     className="img-fluid rounded-circle border border-4"
                                 />
@@ -402,12 +444,12 @@ function App() {
                     }
                 ></Route>
                 <Route
-                    path="/rank/1"
+                    path="/rank/:rankId"
                     element={
                         <>
                             <Header />
-                            <RankHeader props={{ rank: "Bronze" }} />
-                            <RankList props={{ rank: 1 }} />
+                            <RankHeader />
+                            <RankList />
                         </>
                     }
                 ></Route>
