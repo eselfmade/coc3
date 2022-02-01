@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/coc3/static/css/main.491d5462.css",
+    "main.js": "/coc3/static/js/main.22393e71.js",
+    "static/media/mobile-banner.webp": "/coc3/static/media/mobile-banner.c338d7f25f57088c666c.webp",
+    "static/media/web-banner.webp": "/coc3/static/media/web-banner.778e8581371bb48a4391.webp",
+    "static/media/coach-mob.webp": "/coc3/static/media/coach-mob.ac30799da34b72b84c44.webp",
+    "static/media/surya.webp": "/coc3/static/media/surya.d411cfae19f26e44d24a.webp",
+    "static/media/nishanth.webp": "/coc3/static/media/nishanth.925a00e9554cd9610425.webp",
+    "static/media/bronze.webp": "/coc3/static/media/bronze.0e0889f0699e7e48e6a0.webp",
+    "static/media/5star.webp": "/coc3/static/media/5star.e1bbce9cae662f6cae17.webp",
+    "static/media/manoj.webp": "/coc3/static/media/manoj.26b3a738a6c79a1a9b0f.webp",
+    "static/media/7star.webp": "/coc3/static/media/7star.62c69bf53d554910003b.webp",
+    "static/media/3star.webp": "/coc3/static/media/3star.bf4352c45e0cf5482b58.webp",
+    "static/media/star.webp": "/coc3/static/media/star.f39aa37e7c963061587b.webp",
+    "static/media/abishek.webp": "/coc3/static/media/abishek.e0051ef85d39e623b053.webp",
+    "static/media/swathi.webp": "/coc3/static/media/swathi.a52a77056a9a0bd863f1.webp",
+    "static/media/coach-web.webp": "/coc3/static/media/coach-web.762902f85e89924b64c1.webp",
+    "static/media/tamizhselvan.webp": "/coc3/static/media/tamizhselvan.a811a173738cbffa6f46.webp",
+    "static/media/hari.webp": "/coc3/static/media/hari.48e745603265f5246009.webp",
+    "index.html": "/coc3/index.html",
+    "main.491d5462.css.map": "/coc3/static/css/main.491d5462.css.map",
+    "main.22393e71.js.map": "/coc3/static/js/main.22393e71.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.491d5462.css",
+    "static/js/main.22393e71.js"
+  ]
+}
