@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.491d5462.css",
-    "main.js": "/static/js/main.0411e3dc.js",
+    "main.js": "/static/js/main.8b51b826.js",
     "static/media/mobile-banner.webp": "/static/media/mobile-banner.c338d7f25f57088c666c.webp",
     "static/media/web-banner.webp": "/static/media/web-banner.778e8581371bb48a4391.webp",
     "static/media/coach-mob.webp": "/static/media/coach-mob.ac30799da34b72b84c44.webp",
@@ -20,10 +20,10 @@
     "static/media/hari.webp": "/static/media/hari.48e745603265f5246009.webp",
     "index.html": "/index.html",
     "main.491d5462.css.map": "/static/css/main.491d5462.css.map",
-    "main.0411e3dc.js.map": "/static/js/main.0411e3dc.js.map"
+    "main.8b51b826.js.map": "/static/js/main.8b51b826.js.map"
   },
   "entrypoints": [
     "static/css/main.491d5462.css",
-    "static/js/main.0411e3dc.js"
+    "static/js/main.8b51b826.js"
   ]
 }
