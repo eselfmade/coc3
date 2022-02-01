@@ -1,7 +1,7 @@
 {
     "name": "coc3",
     "version": "0.1.0",
-    "homepage": "https://coc.eselfmade.in",
+    "homepage": "https://eselfmade.github.io/coc3",
     "private": true,
     "dependencies": {
         "bootstrap": "^5.1.3",
