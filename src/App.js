@@ -261,7 +261,7 @@ const Coc2 = () => {
     return (
         <div className="bg py-5">
             <Container className="text-center">
-                <h1 className="mb-md-3">COC - 2 RESULTS</h1>
+                <h1 className="mb-md-4">COC - 2 RESULTS</h1>
                 <BrowserView>
                     <Row className="mb-3">
                         <Col>
@@ -382,7 +382,7 @@ function RankHeader() {
     );
 }
 
-const host = "http://localhost:8080";
+const host = "https://eselfmade.in";
 
 function RankList() {
     let { rankId } = useParams();
@@ -395,13 +395,13 @@ function RankList() {
             });
     }, [rankId]);
     return (
-        <div className="bg-light-gray fs-3">
+        <div className="bg-light-gray fs-6 px-md-5">
             <Container className="rank-list text-center pb-5">
                 {rank.map((player, index) => {
                     return (
                         <Row className="align-items-center py-2">
                             <Col className="col-1 fw-bold">{index + 1}.</Col>
-                            <Col className="3">
+                            <Col className="col-3">
                                 <img
                                     width={150}
                                     alt={player.name + " " + player.team}
@@ -409,11 +409,13 @@ function RankList() {
                                     className="img-fluid rounded-circle border border-4"
                                 />
                             </Col>
-                            <Col>
+                            <Col className="col-5">
                                 <div className="fw-bold">{player.name}</div>
                                 <div className="text-gray">{player.team}</div>
                             </Col>
-                            <Col className="fw-bold">₹{player.income}/-</Col>
+                            <Col className="col-3 fw-bold">
+                                ₹{player.income}/-
+                            </Col>
                         </Row>
                     );
                 })}
