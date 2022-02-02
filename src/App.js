@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Pagination } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
 import { HashRouter, Routes, Route, Link, useParams } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -30,13 +30,13 @@ const About = () => {
         <div className="bg pt-md-5">
             <Container className="py-5">
                 <h1 className="text-center mb-3">ABOUT COC</h1>
-                <div className="fs-5 mb-2">
+                <div className="mb-2">
                     In the history of various contests conducted by Selfmade,
                     Clash of Champions is a significant one. This remarkable
                     contest has created lots of leaders in the past couple of
                     years.
                 </div>
-                <div className="fs-5">
+                <div>
                     The specialty of this contest is to bring the maximum
                     potential of every individual that helps to get
                     extraordinary results concerning their hard work.
@@ -51,11 +51,11 @@ const Upgrades = () => {
         <div className="bg pb-5">
             <Container className="py-5">
                 <h1 className="text-center">COC - 3</h1>
-                <div className="fs-5 mb-2">
+                <div className="mb-2">
                     Let us have a look at the new upgrades introduced in this
                     new Season:
                 </div>
-                <div className="fs-5">
+                <div>
                     <ul>
                         <li>
                             "A good coach can change a game. A great coach can
@@ -298,16 +298,16 @@ const Coc2 = () => {
                         </Col>
                         <Col>
                             <LazyLoadImage
-                                src={require("./images/nishanth.webp")}
+                                src={require("./images/tamizhselvan.webp")}
                                 className="img-fluid"
-                                alt="Nishanth"
+                                alt="Tamizhselvan"
                             />
                         </Col>
                         <Col>
                             <LazyLoadImage
-                                src={require("./images/tamizhselvan.webp")}
+                                src={require("./images/nishanth.webp")}
                                 className="img-fluid"
-                                alt="Tamizhselvan"
+                                alt="Nishanth"
                             />
                         </Col>
                     </Row>
@@ -408,10 +408,12 @@ function RankHeader() {
 }
 
 const host = "https://eselfmade.in";
+// const host = "http://localhost:8080";
 
 function RankList() {
     let { rankId } = useParams();
     const [rank, setRank] = useState([]);
+    const [range, setRange] = useState({ limit: 20, offset: 0 });
     useEffect(() => {
         fetch(`${host}/api/coc/rank/${rankId}`)
             .then((r) => r.json())
@@ -419,18 +421,39 @@ function RankList() {
                 setRank(r.rank);
             });
     }, [rankId]);
+
+    function next() {
+        setRange({
+            limit: range.limit + 20,
+            offset: range.offset + 20,
+        });
+    }
+
+    function prev() {
+        setRange({
+            limit: range.limit - 20,
+            offset: range.offset - 20,
+        });
+    }
+
     return (
         <div className="bg-light-gray fs-6 px-md-5">
             <Container className="rank-list text-center pb-5">
-                {rank.map((player, index) => {
+                {rank.slice(range.offset, range.limit).map((player, index) => {
                     return (
-                        <Row className="align-items-center py-2">
-                            <Col className="col-1 fw-bold">{index + 1}.</Col>
+                        <Row className="align-items-center py-2" key={index}>
+                            <Col className="col-1 fw-bold">
+                                {range.offset + index + 1}.
+                            </Col>
                             <Col className="col-3">
                                 <LazyLoadImage
                                     width={150}
                                     alt={player.name + " " + player.team}
-                                    src={toImage(player.image)}
+                                    src={
+                                        player.image
+                                            ? toImage(player.image)
+                                            : `https://ui-avatars.com/api/?name=${player.name}&background=random`
+                                    }
                                     className="img-fluid rounded-circle border border-4"
                                 />
                             </Col>
@@ -444,6 +467,20 @@ function RankList() {
                         </Row>
                     );
                 })}
+                <Row className="mt-3">
+                    <Col>
+                        <Pagination className="justify-content-evenly">
+                            <Pagination.Prev
+                                disabled={range.offset === 0}
+                                onClick={prev}
+                            />
+                            <Pagination.Next
+                                disabled={range.limit >= rank.length}
+                                onClick={next}
+                            />
+                        </Pagination>
+                    </Col>
+                </Row>
             </Container>
         </div>
     );
@@ -462,9 +499,9 @@ function App() {
                     element={
                         <>
                             <Header />
+                            <RankImage />
                             <About />
                             <Upgrades />
-                            <RankImage />
                             <Coach />
                             <Coc2 />
                         </>
