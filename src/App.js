@@ -2,19 +2,20 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
 import { HashRouter, Routes, Route, Link, useParams } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Header = () => {
     return (
         <header>
             <MobileView>
-                <img
+                <LazyLoadImage
                     alt="Clash Of Champions Season III - Selfmade"
                     className="img-fluid"
                     src={require("./images/mobile-banner.webp")}
                 />
             </MobileView>
             <BrowserView>
-                <img
+                <LazyLoadImage
                     alt="Clash Of Champions Season III - Selfmade"
                     className="img-fluid w-100"
                     src={require("./images/web-banner.webp")}
@@ -92,49 +93,79 @@ const RankImage = () => {
                         <Col className="align-self-center">
                             <Row>
                                 <Col className="my-3">
-                                    <img
-                                        src={star}
-                                        className="img-fluid"
-                                        alt="Star"
-                                    />
+                                    <Link
+                                        to={{
+                                            pathname: "/rank/2",
+                                        }}
+                                    >
+                                        <LazyLoadImage
+                                            src={star}
+                                            alt="Star"
+                                            className="img-fluid"
+                                        />
+                                    </Link>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col className="my-3">
-                                    <img
-                                        src={_5star}
-                                        className="img-fluid"
-                                        alt="5 Star"
-                                    />
+                                    <Link
+                                        to={{
+                                            pathname: "/rank/4",
+                                        }}
+                                    >
+                                        <LazyLoadImage
+                                            src={_5star}
+                                            alt="Bronze"
+                                            className="img-fluid"
+                                        />
+                                    </Link>
                                 </Col>
                             </Row>
                         </Col>
                         <Col className="align-self-center">
                             <Row>
                                 <Col className="my-3">
-                                    <img
-                                        src={bronze}
-                                        className="img-fluid"
-                                        alt="Bronze"
-                                    />
+                                    <Link
+                                        to={{
+                                            pathname: "/rank/1",
+                                        }}
+                                    >
+                                        <LazyLoadImage
+                                            src={bronze}
+                                            alt="Bronze"
+                                            className="img-fluid"
+                                        />
+                                    </Link>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col className="my-3">
-                                    <img
-                                        src={_3star}
-                                        className="img-fluid"
-                                        alt="3 Star"
-                                    />
+                                    <Link
+                                        to={{
+                                            pathname: "/rank/3",
+                                        }}
+                                    >
+                                        <LazyLoadImage
+                                            src={_3star}
+                                            alt="Bronze"
+                                            className="img-fluid"
+                                        />
+                                    </Link>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col className="my-3">
-                                    <img
-                                        src={_7star}
-                                        className="img-fluid"
-                                        alt="7 Star"
-                                    />
+                                    <Link
+                                        to={{
+                                            pathname: "/rank/5",
+                                        }}
+                                    >
+                                        <LazyLoadImage
+                                            src={_7star}
+                                            alt="Bronze"
+                                            className="img-fluid"
+                                        />
+                                    </Link>
                                 </Col>
                             </Row>
                         </Col>
@@ -148,7 +179,7 @@ const RankImage = () => {
                                     pathname: "/rank/1",
                                 }}
                             >
-                                <img
+                                <LazyLoadImage
                                     src={bronze}
                                     alt="Bronze"
                                     className="img-fluid"
@@ -161,7 +192,7 @@ const RankImage = () => {
                                     pathname: "/rank/2",
                                 }}
                             >
-                                <img
+                                <LazyLoadImage
                                     src={star}
                                     alt="Star"
                                     className="img-fluid"
@@ -174,7 +205,7 @@ const RankImage = () => {
                                     pathname: "/rank/3",
                                 }}
                             >
-                                <img
+                                <LazyLoadImage
                                     src={_3star}
                                     alt="Bronze"
                                     className="img-fluid"
@@ -187,7 +218,7 @@ const RankImage = () => {
                                     pathname: "/rank/4",
                                 }}
                             >
-                                <img
+                                <LazyLoadImage
                                     src={_5star}
                                     alt="Bronze"
                                     className="img-fluid"
@@ -200,7 +231,7 @@ const RankImage = () => {
                                     pathname: "/rank/5",
                                 }}
                             >
-                                <img
+                                <LazyLoadImage
                                     src={_7star}
                                     alt="Bronze"
                                     className="img-fluid"
@@ -220,7 +251,7 @@ const Coach = () => {
             <Container className="py-md-5">
                 <div className="position-relative">
                     <BrowserView>
-                        <img
+                        <LazyLoadImage
                             src={require("./images/coach-web.webp")}
                             className="img-fluid w-100"
                             alt="Coach"
@@ -233,7 +264,7 @@ const Coach = () => {
                         </button>
                     </BrowserView>
                     <MobileView>
-                        <img
+                        <LazyLoadImage
                             src={require("./images/coach-mob.webp")}
                             className="img-fluid w-100"
                             alt="Coach"
@@ -259,54 +290,54 @@ const Coc2 = () => {
                 <BrowserView>
                     <Row className="mb-3">
                         <Col>
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/hari.webp")}
                                 className="img-fluid"
                                 alt="Hariharan"
                             />
                         </Col>
                         <Col>
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/nishanth.webp")}
                                 className="img-fluid"
                                 alt="Nishanth"
                             />
                         </Col>
                         <Col>
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/tamizhselvan.webp")}
                                 className="img-fluid"
                                 alt="Tamizhselvan"
                             />
                         </Col>
+                    </Row>
+                    <Row>
                         <Col>
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/surya.webp")}
                                 className="img-fluid"
                                 alt="Surya Prakash"
                             />
                         </Col>
-                    </Row>
-                    <Row>
                         <Col>
-                            <img
+                            <LazyLoadImage
+                                src={require("./images/swathi.webp")}
+                                className="img-fluid"
+                                alt="Swathi"
+                            />
+                        </Col>
+                        <Col>
+                            <LazyLoadImage
                                 src={require("./images/abishek.webp")}
                                 className="img-fluid"
                                 alt="Abishek"
                             />
                         </Col>
                         <Col>
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/manoj.webp")}
                                 className="img-fluid"
                                 alt="Manoj"
-                            />
-                        </Col>
-                        <Col>
-                            <img
-                                src={require("./images/swathi.webp")}
-                                className="img-fluid"
-                                alt="Swathi"
                             />
                         </Col>
                     </Row>
@@ -314,41 +345,41 @@ const Coc2 = () => {
                 <MobileView>
                     <Row>
                         <Col className="align-self-center">
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/nishanth.webp")}
                                 className="img-fluid"
                                 alt="Nishanth"
                             />
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/abishek.webp")}
                                 className="img-fluid"
                                 alt="Abishek"
                             />
                         </Col>
                         <Col className="align-self-center">
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/hari.webp")}
                                 className="img-fluid"
                                 alt="Hariharan"
                             />
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/tamizhselvan.webp")}
                                 className="img-fluid"
                                 alt="Tamizhselvan"
                             />
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/manoj.webp")}
                                 className="img-fluid"
                                 alt="Manoj"
                             />
                         </Col>
                         <Col className="align-self-center">
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/surya.webp")}
                                 className="img-fluid"
                                 alt="Surya Prakash"
                             />
-                            <img
+                            <LazyLoadImage
                                 src={require("./images/swathi.webp")}
                                 className="img-fluid"
                                 alt="Swathi"
@@ -396,7 +427,7 @@ function RankList() {
                         <Row className="align-items-center py-2">
                             <Col className="col-1 fw-bold">{index + 1}.</Col>
                             <Col className="col-3">
-                                <img
+                                <LazyLoadImage
                                     width={150}
                                     alt={player.name + " " + player.team}
                                     src={toImage(player.image)}
