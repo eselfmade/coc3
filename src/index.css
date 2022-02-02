@@ -40,3 +40,17 @@ h1,
 .text-gray {
     color: #5d5d5d;
 }
+
+.page-item .page-link {
+    background-color: #c32625 !important;
+    color: #d3d3d3 !important;
+}
+
+.page-item .page-link.disabled {
+    background-color: #c42726 !important;
+    color: #d3d3d3 !important;
+}
+
+.page-link:focus {
+    box-shadow: 0 0 0 0.25rem rgba(196, 39, 38, 0.25);
+}
