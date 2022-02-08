@@ -256,18 +256,12 @@ const Coach = () => {
                             className="img-fluid w-100"
                             alt="Coach"
                         />
-                        <Link
-                            to={{
-                                pathname: "/coach",
-                            }}
+                        <button
+                            className="position-absolute rounded-pill btn btn-gray"
+                            style={{ top: 220, left: 100 }}
                         >
-                            <button
-                                className="position-absolute rounded-pill btn btn-gray"
-                                style={{ top: 220, left: 100 }}
-                            >
-                                View Scorecard
-                            </button>
-                        </Link>
+                            View Scorecard
+                        </button>
                     </BrowserView>
                     <MobileView>
                         <LazyLoadImage
