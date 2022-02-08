@@ -256,12 +256,18 @@ const Coach = () => {
                             className="img-fluid w-100"
                             alt="Coach"
                         />
-                        <button
-                            className="position-absolute rounded-pill btn btn-gray"
-                            style={{ top: 220, left: 100 }}
+                        <Link
+                            to={{
+                                pathname: "/coach",
+                            }}
                         >
-                            View Scorecard
-                        </button>
+                            <button
+                                className="position-absolute rounded-pill btn btn-gray"
+                                style={{ top: 220, left: 100 }}
+                            >
+                                View Scorecard
+                            </button>
+                        </Link>
                     </BrowserView>
                     <MobileView>
                         <LazyLoadImage
@@ -407,8 +413,63 @@ function RankHeader() {
     );
 }
 
-const host = "https://eselfmade.in";
+const host = "https://lycra.eselfmade.in";
 // const host = "http://localhost:8080";
+
+function CoachScorecard() {
+    const [score, setScore] = useState([]);
+    useEffect(() => {
+        fetch(`${host}/api/coc/coaches`)
+            .then((r) => r.json())
+            .then((r) => {
+                setScore(r.scores);
+            });
+    });
+    return (
+        <>
+            <div className="bg p-5 text-center">
+                <h1>Cooach Score Card</h1>
+            </div>
+            <div className="bg-light-gray fs-6 px-md-5">
+                <Container className="rank-list text-center pb-5">
+                    {score.map((player, index) => {
+                        return (
+                            <Row
+                                className="align-items-center py-2"
+                                key={index}
+                            >
+                                <Col className="col-1 fw-bold">
+                                    {index + 1}.
+                                </Col>
+                                <Col className="col-3">
+                                    <LazyLoadImage
+                                        width={150}
+                                        alt={player.name + " " + player.team}
+                                        src={
+                                            player.image
+                                                ? toImage(player.image)
+                                                : `https://ui-avatars.com/api/?name=${player.name}&background=random`
+                                        }
+                                        className="img-fluid rounded-circle border border-4"
+                                    />
+                                </Col>
+                                <Col className="col-5">
+                                    <div className="fw-bold">{player.name}</div>
+                                    <div className="text-gray">
+                                        {player.team}
+                                    </div>
+                                </Col>
+                                <Col className="col-3 fw-bold">
+                                    {player.score}
+                                </Col>
+                            </Row>
+                        );
+                    })}
+                </Container>
+            </div>
+        </>
+    );
+}
 
 function RankList() {
     let { rankId } = useParams();
@@ -514,6 +575,15 @@ function App() {
                             <Header />
                             <RankHeader />
                             <RankList />
+                        </>
+                    }
+                ></Route>
+                <Route
+                    path="/coach"
+                    element={
+                        <>
+                            <Header />
+                            <CoachScorecard />
                         </>
                     }
                 ></Route>
