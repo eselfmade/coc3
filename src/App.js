@@ -428,7 +428,7 @@ function CoachScorecard() {
     return (
         <>
             <div className="bg p-5 text-center">
-                <h1>Cooach Score Card</h1>
+                <h1>Coach Score Card</h1>
             </div>
             <div className="bg-light-gray fs-6 px-md-5">
                 <Container className="rank-list text-center pb-5">
