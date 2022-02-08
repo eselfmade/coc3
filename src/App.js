@@ -256,12 +256,18 @@ const Coach = () => {
                             className="img-fluid w-100"
                             alt="Coach"
                         />
-                        <button
-                            className="position-absolute rounded-pill btn btn-gray"
-                            style={{ top: 220, left: 100 }}
+                        <Link
+                            to={{
+                                pathname: "/coach",
+                            }}
                         >
-                            View Scorecard
-                        </button>
+                            <button
+                                className="position-absolute rounded-pill btn btn-gray"
+                                style={{ top: 220, left: 100 }}
+                            >
+                                View Scorecard
+                            </button>
+                        </Link>
                     </BrowserView>
                     <MobileView>
                         <LazyLoadImage
@@ -407,7 +413,7 @@ function RankHeader() {
     );
 }
 
-const host = "https://lycra.eselfmade.in";
+const host = "https://eselfmade.in";
 // const host = "http://localhost:8080";
 
 function CoachScorecard() {
