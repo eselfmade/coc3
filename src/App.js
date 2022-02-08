@@ -270,23 +270,23 @@ const Coach = () => {
                         </Link>
                     </BrowserView>
                     <MobileView>
+                        <LazyLoadImage
+                            src={require("./images/coach-mob.webp")}
+                            className="img-fluid w-100"
+                            alt="Coach"
+                        />
                         <Link
                             to={{
                                 pathname: "/coach",
                             }}
                         >
-                            <LazyLoadImage
-                                src={require("./images/coach-mob.webp")}
-                                className="img-fluid w-100"
-                                alt="Coach"
-                            />
+                            <button
+                                className="position-absolute top-50 rounded-pill btn btn-gray"
+                                style={{ left: 40 }}
+                            >
+                                View Scorecard
+                            </button>
                         </Link>
-                        <button
-                            className="position-absolute top-50 rounded-pill btn btn-gray"
-                            style={{ left: 40 }}
-                        >
-                            View Scorecard
-                        </button>
                     </MobileView>
                 </div>
             </Container>
